@@ -1,0 +1,26 @@
+body{
+    height: 100vh;
+    margin:0;
+}
+main{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:inherit;
+}
+.jogo{
+    display:block;
+}
+.bloco {
+    display:block;
+   min-width: 256px;
+   min-height: 256px;
+    background-color: gray;
+    border: 8px solid rgb(0, 0, 0); 
+    border-radius: 8px;
+  }
+  .celulas{
+    width: 64px;
+    height: 64px;
+    border: 2px;
+  }
