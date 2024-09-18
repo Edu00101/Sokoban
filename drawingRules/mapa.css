@@ -1,0 +1,53 @@
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+#jogo {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.bloco {
+  display: block;
+  min-width: 256px;
+  min-height: 256px;
+  padding: 2px 3px;
+  background-color: gray;
+  border: 8px solid #505050;
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
+  margin: 24px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  padding: 2px 0;
+  justify-content: flex-end;
+}
+
+.cell {
+  width: min(5vw, 64px);
+  height: min(5vw, 64px);
+  margin: 0 1px;
+  border-radius: 2px;
+  background-color: aliceblue;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
+}
+
+.rell {
+  background-color: rgb(0, 218, 247);
+  box-shadow: none;
+}
