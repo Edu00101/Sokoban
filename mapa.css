@@ -12,7 +12,7 @@ main {
 
 #jogo {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 100%;
   align-items: center;
   flex-wrap: wrap;
@@ -22,15 +22,19 @@ main {
   display: block;
   min-width: 256px;
   min-height: 256px;
-  border: 8px solid gray;
   padding: 2px 3px;
+  border: 8px solid gray;
   border-radius: 8px;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
   margin: 24px;
   background: hsla(205, 46%, 10%, 1);
+
   background: linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%);
+  
   background: -moz-linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%);
+  
   background: -webkit-linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%);
+  
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0E1C26", endColorstr="#2A454B", GradientType=1 );
 }
 
@@ -51,8 +55,10 @@ main {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.31);
 }
 
-.rell {
-  background-color:unset;
+.player {
+  height: 58px;
+  background-color:greenyellow;
+  border-radius: 100%;
+  border: 3px solid rgb(2, 2, 2);
   
-  box-shadow: none;
 }

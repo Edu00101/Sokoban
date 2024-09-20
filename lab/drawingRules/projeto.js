@@ -93,16 +93,28 @@ function rule9(cell, numberOfRows, numberOfCollumns, X, Y){
         cell.classList.add('rell');
     }
 }
+function rule10(cell, numberOfRows, numberOfCollumns, X, Y){
+    if(X == 0 || Y == 0){
+        cell.classList.add('rell');
+    }
+}
+function rule11(cell, numberOfRows, numberOfCollumns, X, Y){
+    if(Y ==  numberOfRows -1||X ==  numberOfCollumns -1){
+        cell.classList.add('rell');
+    }
+}
 
 
 
-buildGameBoard(8, 8, rule0);
-buildGameBoard(8, 8, rule1);
-buildGameBoard(8, 8, rule2);
+// buildGameBoard(8, 8, rule0);
+// buildGameBoard(8, 8, rule1);
+// buildGameBoard(8, 8, rule2);
 buildGameBoard(8, 8, rule3);
-buildGameBoard(8, 8, rule4);
-buildGameBoard(8, 8, rule5);
-buildGameBoard(8, 8, rule6);
-buildGameBoard(8, 8, rule7);
-buildGameBoard(8, 8, rule8);
-buildGameBoard(8, 8, rule9);
+// buildGameBoard(8, 8, rule4);
+// buildGameBoard(8, 8, rule5);
+// buildGameBoard(8, 8, rule6);
+// buildGameBoard(8, 8, rule7);
+// buildGameBoard(8, 8, rule8);
+// buildGameBoard(8, 8, rule9);
+// buildGameBoard(8, 8, rule10);
+// buildGameBoard(8, 8, rule11);
