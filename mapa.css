@@ -20,6 +20,7 @@ main {
 
 .bloco {
   display: block;
+  position: relative;
   min-width: 256px;
   min-height: 256px;
   padding: 2px 3px;
@@ -30,19 +31,19 @@ main {
   background: hsla(205, 46%, 10%, 1);
 
   background: linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%);
-  
+
   background: -moz-linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%);
-  
+
   background: -webkit-linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 28%, 23%, 1) 50%, hsla(207, 41%, 27%, 1) 100%);
-  
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0E1C26", endColorstr="#2A454B", GradientType=1 );
+
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#0E1C26", endColorstr="#2A454B", GradientType=1);
 }
 
 .row {
   display: flex;
   flex-direction: row;
   height: 64px;
-  padding: 2px 0;
+  margin: 2px 0;
   justify-content: flex-end;
 }
 
@@ -56,15 +57,16 @@ main {
 }
 
 .player {
-   
-    width: 0; 
-      height: 0; 
-  
-    /* border-top: 25px solid transparent; */
-      border-left: 7px solid transparent;
-      border-right: 45px solid transparent;
-      border-bottom: 70px solid rgba(0,120,220, 1);
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 63px;
+    height: 63px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px;
+    background: radial-gradient(closest-side circle at 50% 25%, rgb(221, 0, 0) 20%, transparent 20%),
+        radial-gradient(closest-side circle at 50% 25%, rgb(9, 52, 243) 100%, transparent 10%),
+        radial-gradient(closest-side circle at 50% 75%, rgb(161, 41, 41) 20%, transparent 20%),
+        radial-gradient(closest-side circle at 50% 75%, black 100%, transparent 10%),
+        linear-gradient(to right, rgb(197, 13, 13) 50%, rgb(122, 0, 0) 50%);
 }
-  
-  
-
