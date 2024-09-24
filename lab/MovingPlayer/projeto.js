@@ -1,5 +1,4 @@
 const player = new Player(0, 0);
-const celulas = document.querySelectorAll('.cell');
 const playerElement = document.querySelector('.player');
 
 const DIST_SALTO = 66;
@@ -12,8 +11,7 @@ window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        let k = next.x * 8 + next.y;
-        player.moveTo(next, playerElement, celulas[k]);
+        player.moveTo(next, playerElement);
     }
 })
 
@@ -33,7 +31,7 @@ function Player(x, y) {
         return { x, y };
 
     }
-    this.moveTo = function (position, element, parent) {
+    this.moveTo = function (position, element) {
 
         this.x = position.x;
         this.y = position.y;
@@ -54,10 +52,3 @@ function calculaPosicao(qtd, tamanho) {
 
     return (qtd * DIST_SALTO + MARGIN_FIX  + "px");
 }
-
-console.log(calculaPosicao(0, 64) === "0px");
-console.log(calculaPosicao(1, 64) === "64px");
-console.log(calculaPosicao(2, 32) === "64px");
-console.log(calculaPosicao(10, 60) === "600px");
-console.log(calculaPosicao(-3, 45) === "-135px");
-
