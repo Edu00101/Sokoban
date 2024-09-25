@@ -72,9 +72,6 @@ main {
         linear-gradient(to right, rgb(119, 6, 6) 50%, rgb(122, 0, 0) 50%);
 }
 
-.parede{
-  width: 64px;
-  height: 64px;
-  margin: 0 1px;
-  border-radius: 2px;
-}
+.box { background-color: chocolate; }
+.goal { background-color: burlywood; }
+.wall { background-color: darkgray; }
