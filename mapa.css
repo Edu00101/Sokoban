@@ -71,3 +71,7 @@ main {
         radial-gradient(closest-side  at 45% 75%, black 100%, transparent 10%),
         linear-gradient(to right, rgb(119, 6, 6) 50%, rgb(122, 0, 0) 50%);
 }
+
+.box { background-color: chocolate; }
+.goal { background-color: burlywood; }
+.wall { background-color: darkgray; }
