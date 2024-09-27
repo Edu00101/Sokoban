@@ -3,10 +3,10 @@ const NUM_ROWS = boardMap.length;
 const NUM_COLS = boardMap[0].length;
 const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
-const pices = buildGameBoard(NUM_ROWS, NUM_COLS);
+const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
 
 
-const player = new Player(pices.player.x, pices.player.y);
+const player = new Pieces(pieces.player.x, pieces.player.y);
 const board = document.querySelector('.bloco');
 const playerElement = createGameElement('div', 'caixa', board);
 
@@ -24,7 +24,7 @@ window.addEventListener("keydown", function (event) {
 })
 
 
-function Player(x, y) {
+function Pieces(x, y) {
     this.x = x;
     this.y = y;
 

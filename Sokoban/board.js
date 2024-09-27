@@ -13,7 +13,7 @@ const boardMap = [
 function buildGameBoard(numberOfRows, numberOfCollumns) {
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'bloco', game);
-    const pices = {};
+    const pieces = {};
 
 
     for (let x = 0; x < numberOfRows; x++) {
@@ -27,13 +27,13 @@ function buildGameBoard(numberOfRows, numberOfCollumns) {
             if (bir === '#') cell.classList.add('wall');
             if (bir === 'G') cell.classList.add('goal');
             if (bir === 'B') cell.classList.add('box');
-            if (bir === 'P') pices.player = { x: x, y: y }
+            if (bir === 'P') pieces.player = { x: x, y: y }
         }
 
 
     }
 
-    return pices;
+    return pieces;
 }
 function createGameElement(elementName, className, parentNode) {
     const element = document.createElement(elementName);
