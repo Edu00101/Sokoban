@@ -18,7 +18,9 @@ const pices = buildGameBoard(NUM_ROWS, NUM_COLS);
 
 
 const player = new Player(pices.player.x, pices.player.y);
-const playerElement = document.querySelector('.caixa');
+const board = document.querySelector('.bloco');
+const playerElement = createGameElement('div', 'caixa', board);
+
 
 
 playerElement.style.top = calculaPosicao(player.x);
@@ -85,10 +87,10 @@ function createGameElement(elementName, className, parentNode) {
     return element;
 }
 
-function buildGameBoard(numberOfRows, numberOfCollumns, rule) {
+function buildGameBoard(numberOfRows, numberOfCollumns) {
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'bloco', game);
-    const pices = createGameElement('div', 'player', board);
+    const pices = {};
 
 
     for (let x = 0; x < numberOfRows; x++) {
@@ -102,13 +104,11 @@ function buildGameBoard(numberOfRows, numberOfCollumns, rule) {
             if (bir === '#') cell.classList.add('wall');
             if (bir === 'G') cell.classList.add('goal');
             if (bir === 'B') cell.classList.add('box');
-            if (bir === 'P') pices.player = {x: x, y: y}
+            if (bir === 'P') pices.player = { x: x, y: y }
         }
-        
+
 
     }
-   
-    createGameElement('div', 'caixa', board);
-            
-            return pices;
-        }
+
+    return pices;
+}
