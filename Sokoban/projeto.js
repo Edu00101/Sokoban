@@ -5,29 +5,28 @@ const DIST_SALTO = 66;
 const MARGIN_FIX = 4;
 
 const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
-const board = document.querySelector('.bloco');
 
 
 const player = new Pieces(pieces.player.x, pieces.player.y);
-const element = createBoardPiece(player, 'player');
+const board = document.querySelector('.bloco');
+const playerElement = createBoardPiece(player, 'player');
 
+
+function createBoardPiece(piece, className) {
+    
+    piece.insertElementInto(className, board);
+
+    return piece.element;
+}
 
 window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        player.moveTo(next, element);
+        player.moveTo(next, playerElement);
     }
 })
 
-function createBoardPiece(piece, className) {
-    const element = createGameElement('div', className, board);
-
-    element.style.top = calculaPosicao(piece.x);
-    element.style.left = calculaPosicao(piece.y);
-
-    return element;
-}
 
 
 function verifyPosition(position) {
