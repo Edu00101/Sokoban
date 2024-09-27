@@ -13,7 +13,7 @@ const playerElement = createBoardPiece(player, 'player');
 
 
 function createBoardPiece(piece, className) {
-    
+
     piece.insertElementInto(className, board);
 
     return piece.element;
@@ -23,7 +23,7 @@ window.addEventListener("keydown", function (event) {
     const next = player.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        player.moveTo(next, playerElement);
+        player.moveTo(next);
     }
 })
 
