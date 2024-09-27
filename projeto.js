@@ -18,7 +18,7 @@ const pices = buildGameBoard(NUM_ROWS, NUM_COLS);
 
 
 const player = new Player(pices.player.x, pices.player.y);
-const playerElement = document.querySelector('.player');
+const playerElement = document.querySelector('.caixa');
 
 
 playerElement.style.top = calculaPosicao(player.x);
@@ -108,7 +108,7 @@ function buildGameBoard(numberOfRows, numberOfCollumns, rule) {
 
     }
    
-    
+    createGameElement('div', 'caixa', board);
             
             return pices;
         }
