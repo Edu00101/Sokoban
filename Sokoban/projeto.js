@@ -1,27 +1,35 @@
-import  Pieces from "./pieces.js";
-import { buildGameBoard } from "./board.js";
+import Pieces from "./pieces.js";
+import { buildGameBoard, createGameElement } from "./board.js";
 import { boardMap } from "./board.js";
 
 const pieces = buildGameBoard();
 
+console.log(pieces);
 
-const player = new Pieces(pieces.player.x, pieces.player.y);
 const board = document.querySelector('.bloco');
-const playerElement = createBoardPiece(player, 'player');
+const playerPiece = createBoardPiece(pieces.player, 'player');
 
 
-function createBoardPiece(piece, className) {
-
+function createBoardPiece(piecePosition, className) {
+    const piece = new Pieces(piecePosition.x, piecePosition.y);
     piece.insertElementInto(className, board);
 
-    return piece.element;
+    return piece;
 }
 
+
+for (let x = 0; x < pieces.boxes.length; x++) {
+
+        createBoardPiece(pieces.boxes[x], 'caixa');
+
+}
+
+
 window.addEventListener("keydown", function (event) {
-    const next = player.nextPosition(event.code);
+    const next = playerPiece.nextPosition(event.code);
 
     if (verifyPosition(next)) {
-        player.moveTo(next);
+        playerPiece.moveTo(next);
     }
 })
 

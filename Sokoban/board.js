@@ -32,14 +32,12 @@ export function buildGameBoard(){
 
             if (bir === '#') cell.classList.add('wall');
             if (bir === 'G') cell.classList.add('goal');
-            if (bir === 'B') cell.classList.add('box');
+            // if (bir === 'B') cell.classList.add('box');
             if (bir === 'R') cell.classList.add('rell');
             if (bir === 'P') pieces.player = position;
             if (bir === 'B') pieces.boxes.push(position);
 
         }
-
-
     }
 
     return pieces;
