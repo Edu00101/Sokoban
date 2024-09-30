@@ -26,15 +26,16 @@ export function buildGameBoard(){
 
         for (let y = 0; y < NUM_COLS; y++) {
             const cell = createGameElement('div', 'cell', row);
-            const bir = boardMap[x][y];
 
+            const bir = boardMap[x][y];
+            const position = {x: y, y: x}
 
             if (bir === '#') cell.classList.add('wall');
             if (bir === 'G') cell.classList.add('goal');
             if (bir === 'B') cell.classList.add('box');
             if (bir === 'R') cell.classList.add('rell');
-            if (bir === 'P') pieces.player = { x: x, y: y }
-            if (bir === 'B') pieces.boxes.push({x: x, y: y})
+            if (bir === 'P') pieces.player = position;
+            if (bir === 'B') pieces.boxes.push(position);
 
         }
 
