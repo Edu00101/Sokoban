@@ -1,3 +1,7 @@
+import { createGameElement } from "./board.js";
+
+const DIST_SALTO = 66;
+const MARGIN_FIX = 4;
 
 function Pieces(x, y) {
     this.x = x;
@@ -29,8 +33,11 @@ function Pieces(x, y) {
         this.element.style.top = calculaPosicao(this.x);
         this.element.style.left = calculaPosicao(this.y);
     }
+    function calculaPosicao(qtd) {
+    
+        return (qtd * DIST_SALTO + MARGIN_FIX + "px");
+    }
 }
-function calculaPosicao(qtd) {
 
-    return (qtd * DIST_SALTO + MARGIN_FIX + "px");
-}
+
+export default Pieces;

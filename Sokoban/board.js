@@ -1,4 +1,4 @@
-const boardMap = [
+export const boardMap = [
     ["#", "#", "#", "#", "#", "#", "#", "#"],
     ["#", ".", ".", ".", ".", ".", ".", "#"],
     ["#", ".", ".", ".", "#", ".", ".", "#"],
@@ -9,8 +9,10 @@ const boardMap = [
     ["#", "#", "#", "#", "#", "#", "#", "#"]
 
 ]
+const NUM_ROWS = boardMap.length;
+const NUM_COLS = boardMap[0].length;
 
-function buildGameBoard(numberOfRows, numberOfCollumns) {
+export function buildGameBoard(){
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'bloco', game);
     const pieces = {
@@ -19,10 +21,10 @@ function buildGameBoard(numberOfRows, numberOfCollumns) {
     console.log(pieces);
 
 
-    for (let x = 0; x < numberOfRows; x++) {
+    for (let x = 0; x < NUM_ROWS; x++) {
         const row = createGameElement('div', 'row', board);
 
-        for (let y = 0; y < numberOfCollumns; y++) {
+        for (let y = 0; y < NUM_COLS; y++) {
             const cell = createGameElement('div', 'cell', row);
             const bir = boardMap[x][y];
 
@@ -40,7 +42,7 @@ function buildGameBoard(numberOfRows, numberOfCollumns) {
 
     return pieces;
 }
-function createGameElement(elementName, className, parentNode) {
+export function createGameElement(elementName, className, parentNode) {
     const element = document.createElement(elementName);
     element.classList.add(className);
     parentNode.append(element);

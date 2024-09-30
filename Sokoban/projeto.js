@@ -1,11 +1,8 @@
+import  Pieces from "./pieces.js";
+import { buildGameBoard } from "./board.js";
+import { boardMap } from "./board.js";
 
-const NUM_ROWS = boardMap.length;
-const NUM_COLS = boardMap[0].length;
-
-const DIST_SALTO = 66;
-const MARGIN_FIX = 4;
-
-const pieces = buildGameBoard(NUM_ROWS, NUM_COLS);
+const pieces = buildGameBoard();
 
 
 const player = new Pieces(pieces.player.x, pieces.player.y);
@@ -34,7 +31,5 @@ function verifyPosition(position) {
     let { x, y } = position
 
     return boardMap[x][y] !== '#';
-
-
 }
 
