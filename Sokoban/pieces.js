@@ -3,6 +3,7 @@ function Pieces(x, y) {
     this.x = x;
     this.y = y;
 
+
     this.nextPosition = function (keycode) {
         let { x, y } = this;
 
@@ -27,8 +28,9 @@ function Pieces(x, y) {
 
         this.element.style.top = calculaPosicao(this.x);
         this.element.style.left = calculaPosicao(this.y);
-
-
-
     }
+}
+function calculaPosicao(qtd) {
+
+    return (qtd * DIST_SALTO + MARGIN_FIX + "px");
 }
