@@ -96,3 +96,9 @@ main {
 .wall {
   background-color: darkgray;
 }
+
+.rell {
+  background-color:unset;
+  
+  box-shadow: none;
+}
