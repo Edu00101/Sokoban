@@ -31,6 +31,7 @@ export function buildGameBoard(){
 
             if (bir === '#') cell.classList.add('wall');
             if (bir === 'G') cell.classList.add('goal');
+            if (bir === 'B') cell.classList.add('box');
             if (bir === 'R') cell.classList.add('rell');
             if (bir === 'P') pieces.player = { x: x, y: y }
             if (bir === 'B') pieces.boxes.push({x: x, y: y})
