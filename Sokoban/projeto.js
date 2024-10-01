@@ -7,7 +7,8 @@ const pieces = buildGameBoard();
 console.log(pieces);
 
 const board = document.querySelector('.bloco');
-const playerPiece = createBoardPiece(pieces.player, 'player');
+const player = createBoardPiece(pieces.player, 'player');
+const boxes = [];
 
 
 function createBoardPiece(piecePosition, className) {
@@ -19,6 +20,9 @@ function createBoardPiece(piecePosition, className) {
 
 
 for (let x = 0; x < pieces.boxes.length; x++) {
+        let piece = createBoardPiece(pieces.boxes[x], 'caixas');
+        boxes.push(piece);
+}
 
         createBoardPiece(pieces.boxes[x], 'caixas');
 }
