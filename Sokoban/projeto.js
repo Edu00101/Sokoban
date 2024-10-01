@@ -47,6 +47,11 @@ console.log(findBoxAtPosition({x:4, y:4}));
 window.addEventListener("keydown", function (event) {
     const next = playerPiece.nextPosition(event.code);
 
+    }
+    // E caso não encontre outra peça...
+    else {
+        // Faça as modificações que forem necessárias para manter o
+        // funcionamento do jogo.
     if (verifyPosition(next)) {
         playerPiece.moveTo(next);
     }
