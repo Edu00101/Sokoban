@@ -19,7 +19,7 @@ function Pieces(x, y) {
         return { x, y };
 
     }
-    this.moveTo = function (position, element) {
+    this.moveTo = function (position) {
 
         this.y = position.y;
         this.x = position.x;

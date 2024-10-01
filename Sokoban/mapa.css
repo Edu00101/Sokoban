@@ -69,10 +69,10 @@ main {
     radial-gradient(closest-side at 45% 25%, #0f0606 100%, transparent 10%),
     radial-gradient(closest-side circle at 50% 75%, rgb(255, 255, 255) 20%, transparent 20%),
     radial-gradient(closest-side at 45% 75%, black 100%, transparent 10%),
-    linear-gradient(to right, rgb(0, 26, 255) 50%, rgb(68, 0, 255) 50%);
+    linear-gradient(to right, rgb(102, 6, 192) 50%, rgb(102, 6, 192) 50%);
 }
 
-.caixa {
+.caixas {
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -82,7 +82,7 @@ main {
   border-radius: 12px;
   margin: 2px;
   border: 4px solid;
-  background-color: chocolate;
+  background-color: rgb(5, 136, 27);
 }
 
 .box {
@@ -90,7 +90,7 @@ main {
 }
 
 .goal {
-  background-color: rgb(126, 238, 122);
+  background-color: rgb(70, 233, 65);
 }
 
 .wall {

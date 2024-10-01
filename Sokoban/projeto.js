@@ -20,8 +20,7 @@ function createBoardPiece(piecePosition, className) {
 
 for (let x = 0; x < pieces.boxes.length; x++) {
 
-        createBoardPiece(pieces.boxes[x], 'caixa');
-
+        createBoardPiece(pieces.boxes[x], 'caixas');
 }
 
 
