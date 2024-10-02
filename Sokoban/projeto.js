@@ -19,8 +19,8 @@ function createBoardPiece(piecePosition, className) {
 
 
 for (let x = 0; x < pieces.boxes.length; x++) {
-        let piece = createBoardPiece(pieces.boxes[x], 'caixas');
-        boxes.push(piece);
+    let piece = createBoardPiece(pieces.boxes[x], 'caixas');
+    boxes.push(piece);
 }
 
 
@@ -30,30 +30,33 @@ window.addEventListener("keydown", function (event) {
     handlePieceMovement(event.code);
 });
 function findBoxAtPosition(position) {
-   
+
     return boxes.find((caixa) => caixa.x === position.x && position.y === caixa.y);
 }
-function handlePieceMovement(keycode){
+function handlePieceMovement(keycode) {
     // Variável destinada ao pré-cálculo da posição do jogador
     const next = player.nextPosition(keycode);
     // (Modificar) Variável para detectar a "presença" de outra peça
     const caixa = findBoxAtPosition(next);
 
     // Implementar lógica caso encontre uma outra peça no caminho.
-    if(caixa) {
-      const nextPositionBox = caixa.nextPosition(keycode);
-      const foundBox2 = findBoxAtPosition(nextPositionBox);
-      const boxCanMove = verifyPosition(nextPositionBox);
-    
-        if(boxCanMove && !foundBox2){
-           caixa.moveTo(nextPositionBox);
-           player.moveTo(next);
+    if (caixa) {
+        const nextPositionBox = caixa.nextPosition(keycode);
+        const foundBox2 = findBoxAtPosition(nextPositionBox);
+        const boxCanMove = verifyPosition(nextPositionBox);
 
-            
+        if (boxCanMove && !foundBox2) {
+            caixa.moveTo(nextPositionBox);
+            player.moveTo(next);
+
+            const caixasCertas = contagemDeCx();
+
+            console.log(caixasCertas);
+            if(caixasCertas == 3){
+                alert('Você Venceu');
+            }
         }
-        console.log(boxCanMove, foundBox2);
-        
-    
+
     }
     // E caso não encontre outra peça...
     else {
@@ -72,3 +75,14 @@ function verifyPosition(position) {
     return boardMap[x][y] !== '#';
 }
 
+function contagemDeCx() {
+    let count = 0;
+
+    for (const caixas of boxes) {
+        let { x: y, y: x } = caixas;
+
+
+        if (boardMap[x][y] === 'G') count++
+    }
+    return count;
+}
