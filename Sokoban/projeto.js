@@ -4,7 +4,6 @@ import { boardMap } from "./board.js";
 
 const pieces = buildGameBoard();
 
-console.log(pieces);
 
 const board = document.querySelector('.bloco');
 const player = createBoardPiece(pieces.player, 'player');
@@ -30,33 +29,31 @@ window.addEventListener("keydown", function (event) {
 
     handlePieceMovement(event.code);
 });
-
-/** Tarefa #1: implementar função para localizar uma caixa à partir de um
- * uma dada coordenada.
-*/
 function findBoxAtPosition(position) {
-    // modificar linha(s) de código abaixo
+   
     return boxes.find((caixa) => caixa.x === position.x && position.y === caixa.y);
-    
 }
-
-console.log(findBoxAtPosition({x:5, y:5}));
-console.log(findBoxAtPosition({x:3, y:3}));
-console.log(findBoxAtPosition({x:4, y:4}));
-
-
-/** Tarefa #2: modificar a função abaixo de forma a tratar tando a movimentação
- * do jogador quanto das caixas.
-*/
 function handlePieceMovement(keycode){
     // Variável destinada ao pré-cálculo da posição do jogador
     const next = player.nextPosition(keycode);
     // (Modificar) Variável para detectar a "presença" de outra peça
-    const foundPiece = findBoxAtPosition(next);
+    const caixa = findBoxAtPosition(next);
 
     // Implementar lógica caso encontre uma outra peça no caminho.
-    if(foundPiece) {
+    if(caixa) {
+      const nextPositionBox = caixa.nextPosition(keycode);
+      const foundBox2 = findBoxAtPosition(nextPositionBox);
+      const boxCanMove = verifyPosition(nextPositionBox);
+    
+        if(boxCanMove && !foundBox2){
+           caixa.moveTo(nextPositionBox);
+           player.moveTo(next);
 
+            
+        }
+        console.log(boxCanMove, foundBox2);
+        
+    
     }
     // E caso não encontre outra peça...
     else {
