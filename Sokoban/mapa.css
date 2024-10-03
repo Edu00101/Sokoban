@@ -30,13 +30,13 @@ main {
   margin: 24px;
   background: hsla(192, 80%, 51%, 1);
 
-background: linear-gradient(90deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
+  background: linear-gradient(90deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
 
-background: -moz-linear-gradient(90deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
+  background: -moz-linear-gradient(90deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
 
-background: -webkit-linear-gradient(90deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, hsla(192, 80%, 51%, 1) 0%, hsla(355, 85%, 63%, 1) 100%);
 
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1DBDE6", endColorstr="#F1515E", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#1DBDE6", endColorstr="#F1515E", GradientType=1);
 }
 
 .row {
@@ -70,6 +70,12 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1DBDE6", en
     radial-gradient(closest-side circle at 50% 75%, rgb(255, 255, 255) 20%, transparent 20%),
     radial-gradient(closest-side at 45% 75%, black 100%, transparent 10%),
     linear-gradient(to right, rgb(151, 3, 3) 50%, rgb(151, 3, 3) 50%);
+
+  transition:
+    left 150ms ease-in-out 50ms,
+    top 150ms ease-in-out 50ms;
+
+
 }
 
 .caixas {
@@ -90,7 +96,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1DBDE6", en
 }
 
 .goal {
- background-color: burlywood; 
+  background-color: burlywood;
 }
 
 .wall {
@@ -98,7 +104,7 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#1DBDE6", en
 }
 
 .rell {
-  background-color:unset;
-  
+  background-color: unset;
+
   box-shadow: none;
 }

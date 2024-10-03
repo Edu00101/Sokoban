@@ -52,8 +52,8 @@ function handlePieceMovement(keycode) {
             const caixasCertas = contagemDeCx();
 
             console.log(caixasCertas);
-            if(caixasCertas == 3){
-                alert('Você Venceu');
+            if (caixasCertas == 3) {
+                setTimeout(levantaPlaquinha, 500);
             }
         }
 
@@ -85,4 +85,7 @@ function contagemDeCx() {
         if (boardMap[x][y] === 'G') count++
     }
     return count;
+}
+function levantaPlaquinha() {
+    alert('Você Venceu');
 }
