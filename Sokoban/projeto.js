@@ -87,5 +87,5 @@ function contagemDeCx() {
     return count;
 }
 function levantaPlaquinha() {
-    alert('Você Venceu');
+    alert('Você Venceu!!');
 }
