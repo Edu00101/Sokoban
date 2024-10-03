@@ -39,6 +39,7 @@ function buildGameBoard(numberOfRows, numberOfCollumns, rule) {
             if (bir === '#')cell.classList.add('wall');
             if (bir === 'B')cell.classList.add('goal');
             if (bir === 'G')cell.classList.add('box');
+            if (bir === 'P')cell.classList.add('jogador');
             
 
         }

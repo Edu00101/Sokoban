@@ -75,3 +75,4 @@ main {
 .box { background-color: chocolate; }
 .goal { background-color: burlywood; }
 .wall { background-color: darkgray; }
+.jogador{ background-color: rgb(0, 233, 0); }
