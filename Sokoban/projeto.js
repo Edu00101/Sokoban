@@ -1,8 +1,8 @@
 import Pieces from "./pieces.js";
-import { buildGameBoard, createGameElement } from "./board.js";
-import { boardMap } from "./board.js";
+import { buildGameBoard} from "./board.js";
+import { lvl0 } from "./leveis.js";
 
-const {pieces, numberOfRows } = buildGameBoard();
+const { boardMap, pieces, numberOfRows } = buildGameBoard(lvl0);
 
 
 const board = document.querySelector('.bloco');
