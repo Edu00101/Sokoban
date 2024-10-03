@@ -88,19 +88,19 @@ main {
   border-radius: 12px;
   margin: 2px;
   border: 4px solid;
-  background-color: chocolate;
-}
-
-.box {
-  background-color: chocolate;
+  background: linear-gradient(180deg, #f70000b9, #ff6302); /* Gradiente para dar profundidade */
+    border: 4px solid #241515dc; /* Borda da caixa */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.5), /* Sombra interna */
+        5px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra externa */
 }
 
 .goal {
-  background-color: burlywood;
+  background: linear-gradient(75deg, #fa4f00, #c9b9b9);
 }
 
 .wall {
-  background-color: darkgray;
+  background-color: rgb(168, 166, 166);
 }
 
 .rell {
