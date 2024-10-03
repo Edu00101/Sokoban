@@ -12,13 +12,13 @@ export const boardMap = [
 const NUM_ROWS = boardMap.length;
 const NUM_COLS = boardMap[0].length;
 
-export function buildGameBoard(){
+export function buildGameBoard() {
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'bloco', game);
     const pieces = {
-        boxes:[]
+        boxes: []
     };
-    console.log(pieces);
+    let numberOfRows = 0;
 
 
     for (let x = 0; x < NUM_ROWS; x++) {
@@ -28,10 +28,13 @@ export function buildGameBoard(){
             const cell = createGameElement('div', 'cell', row);
 
             const bir = boardMap[x][y];
-            const position = {x: y, y: x}
+            const position = { x: y, y: x }
 
             if (bir === '#') cell.classList.add('wall');
-            if (bir === 'G') cell.classList.add('goal');
+            if (bir === 'G') {
+                cell.classList.add('goal')
+                numberOfRows++;
+            };
             if (bir === 'R') cell.classList.add('rell');
             if (bir === 'P') pieces.player = position;
             if (bir === 'B') pieces.boxes.push(position);
@@ -39,7 +42,7 @@ export function buildGameBoard(){
         }
     }
 
-    return pieces;
+    return { pieces, numberOfRows };
 }
 export function createGameElement(elementName, className, parentNode) {
     const element = document.createElement(elementName);

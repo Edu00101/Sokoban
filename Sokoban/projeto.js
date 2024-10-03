@@ -2,7 +2,7 @@ import Pieces from "./pieces.js";
 import { buildGameBoard, createGameElement } from "./board.js";
 import { boardMap } from "./board.js";
 
-const pieces = buildGameBoard();
+const {pieces, numberOfRows } = buildGameBoard();
 
 
 const board = document.querySelector('.bloco');
@@ -52,7 +52,7 @@ function handlePieceMovement(keycode) {
             const caixasCertas = contagemDeCx();
 
             console.log(caixasCertas);
-            if (caixasCertas == 3) {
+            if (caixasCertas == numberOfRows) {
                 setTimeout(levantaPlaquinha, 500);
             }
         }
