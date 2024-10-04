@@ -1,36 +1,11 @@
-const lvl0 = `
-
-__######
-###P...#
-
-
-`
-function string2BoardMap(level) {
-    const lines = level.trim().split('\n');
-    console.log(lines);
-    return lines;
-}
-
-// export const boardMap = [
-//     ["_", "_", "#", "#", "#", "#", "#"],
-//     ["#", "#", "#", ".", ".", ".", "#"],
-//     ["#", ".", ".", ".", "#", ".", "#", "#"],
-//     ["#", ".", "#", ".", "G", ".", ".", "#"],
-//     ["#", ".", ".", ".", "B", ".", ".", "#"],
-//     ["#", "#", "G", "B", "P", "B", "G", "#"],
-//     ["_", "#", ".", ".", ".", "#", "#", "#"],
-//     ["R", "#", "#", "#", "#", "#"]
-
-// ]
-
 export function buildGameBoard(level) {
-    const boardMap = string2BoardMap(level);
+    const boardMap = level.trim().split('\n');
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'bloco', game);
     const pieces = {
         boxes: []
     };
-    let numberOfRows = 0;
+    let numberOfGoals = 0;
     const NUM_ROWS = boardMap.length;
 
 
@@ -52,13 +27,13 @@ export function buildGameBoard(level) {
             if (bir === 'B') pieces.boxes.push(position);
             if (bir === 'G') {
                 cell.classList.add('goal')
-                numberOfRows++;
+                numberOfGoals++;
             };
 
         }
     }
 
-    return { boardMap, pieces, numberOfRows };
+    return { boardMap, pieces, numberOfGoals };
 }
 export function createGameElement(elementName, className, parentNode) {
     const element = document.createElement(elementName);

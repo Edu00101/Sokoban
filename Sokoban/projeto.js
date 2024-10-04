@@ -1,8 +1,7 @@
-import Pieces from "./pieces.js";
 import { buildGameBoard} from "./board.js";
 import { lvl0, lvl1, lvl2, lvl3, lvl4, lvl5, lvl6 } from "./leveis.js";
 
-const { boardMap, pieces, numberOfRows } = buildGameBoard(lvl4);//mudar o level aqui
+const { boardMap, pieces, numberOfGoals } = buildGameBoard(lvl4);//mudar o level aqui
 
 
 const board = document.querySelector('.bloco');
@@ -25,7 +24,7 @@ for (let x = 0; x < pieces.boxes.length; x++) {
 
 
 window.addEventListener("keydown", function (event) {
-    // event.preventDefault();
+ 
 
     handlePieceMovement(event.code);
 });
@@ -34,12 +33,12 @@ function findBoxAtPosition(position) {
     return boxes.find((caixa) => caixa.x === position.x && position.y === caixa.y);
 }
 function handlePieceMovement(keycode) {
-    // Variável destinada ao pré-cálculo da posição do jogador
+
     const next = player.nextPosition(keycode);
-    // (Modificar) Variável para detectar a "presença" de outra peça
+    
     const caixa = findBoxAtPosition(next);
 
-    // Implementar lógica caso encontre uma outra peça no caminho.
+ 
     if (caixa) {
         const nextPositionBox = caixa.nextPosition(keycode);
         const foundBox2 = findBoxAtPosition(nextPositionBox);
@@ -49,20 +48,12 @@ function handlePieceMovement(keycode) {
             caixa.moveTo(nextPositionBox);
             player.moveTo(next);
 
-            const caixasCertas = contagemDeCx();
-
-            console.log(caixasCertas);
-            if (caixasCertas == numberOfRows) {
-                setTimeout(levantaPlaquinha, 500);
-            }
+            if(levelCompleted()) setTimeout(() => alert('Você Venceu!!'), 300);  
         }
 
-    }
-    // E caso não encontre outra peça...
-    else {
-        // Faça as modificações que forem necessárias para manter o
-        // funcionamento do jogo.
-        if (verifyPosition(next)) {
+    } else {
+        const playerCanMove = verifyPosition(next);
+        if (playerCanMove) {
             player.moveTo(next);
         }
     }
@@ -75,7 +66,7 @@ function verifyPosition(position) {
     return boardMap[x][y] !== '#';
 }
 
-function contagemDeCx() {
+function levelCompleted() {
     let count = 0;
 
     for (const caixas of boxes) {
@@ -84,8 +75,6 @@ function contagemDeCx() {
 
         if (boardMap[x][y] === 'G') count++
     }
-    return count;
+    return count == numberOfGoals;
 }
-function levantaPlaquinha() {
-    alert('Você Venceu!!');
-}
+
