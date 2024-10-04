@@ -2,24 +2,11 @@ import { buildGameBoard} from "./board.js";
 import { lvl0, lvl1, lvl2, lvl3, lvl4, lvl5, lvl6 } from "./leveis.js";
 
 const { boardMap, pieces, numberOfGoals } = buildGameBoard(lvl4);//mudar o level aqui
-
-
-const board = document.querySelector('.bloco');
-const player = createBoardPiece(pieces.player, 'player');
-const boxes = [];
-
-
-function createBoardPiece(piecePosition, className) {
-    const piece = new Pieces(piecePosition.x, piecePosition.y);
-    piece.insertElementInto(className, board);
-
-    return piece;
-}
-
+const { player, boxes } = pieces;
 
 for (let x = 0; x < pieces.boxes.length; x++) {
     let piece = createBoardPiece(pieces.boxes[x], 'caixas');
-    boxes.push(piece);
+    boxes.push(pieces);
 }
 
 

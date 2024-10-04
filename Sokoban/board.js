@@ -1,14 +1,16 @@
+import Pieces from "./pieces.js"
+
 export function buildGameBoard(level) {
     const boardMap = level.trim().split('\n');
-    const game = document.getElementById("jogo");
-    const board = createGameElement('div', 'bloco', game);
     const pieces = {
         boxes: []
     };
     let numberOfGoals = 0;
+    
+    const game = document.getElementById("jogo");
+    const board = createGameElement('div', 'bloco', game);
     const NUM_ROWS = boardMap.length;
-
-
+    
     for (let x = 0; x < NUM_ROWS; x++) {
         const row = createGameElement('div', 'row', board);
         const NUM_COLS = boardMap[x].length;
@@ -23,13 +25,12 @@ export function buildGameBoard(level) {
             if (bir === '#') cell.classList.add('wall');
             if (bir === 'R') cell.classList.add('rell');
             if (bir === '_') cell.classList.add('rell');
-            if (bir === 'P') pieces.player = position;
-            if (bir === 'B') pieces.boxes.push(position);
+            if (bir === 'P') pieces.player = createBoardPiece(position, 'player');
+            if (bir === 'B') pieces.boxes.push(createBoardPiece(position, 'caixas'));
             if (bir === 'G') {
                 cell.classList.add('goal')
                 numberOfGoals++;
-            };
-
+            }
         }
     }
 
@@ -43,3 +44,12 @@ export function createGameElement(elementName, className, parentNode) {
     return element;
 }
 
+
+function createBoardPiece(piecePosition, className) {
+    const board = document.querySelector('.board');
+    const pieces = new Pieces(piecePosition.x, piecePosition.y);
+    
+    pieces.insertElementInto(className, board);
+    
+    return pieces;
+}
