@@ -4,11 +4,6 @@ import { lvl0, lvl1, lvl2, lvl3, lvl4, lvl5, lvl6 } from "./leveis.js";
 const { boardMap, pieces, numberOfGoals } = buildGameBoard(lvl4);//mudar o level aqui
 const { player, boxes } = pieces;
 
-for (let x = 0; x < pieces.boxes.length; x++) {
-    let piece = createBoardPiece(pieces.boxes[x], 'caixas');
-    boxes.push(pieces);
-}
-
 
 window.addEventListener("keydown", function (event) {
  

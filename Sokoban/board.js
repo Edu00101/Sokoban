@@ -46,10 +46,10 @@ export function createGameElement(elementName, className, parentNode) {
 
 
 function createBoardPiece(piecePosition, className) {
-    const board = document.querySelector('.board');
+    const board = document.querySelector('.bloco');
     const pieces = new Pieces(piecePosition.x, piecePosition.y);
     
     pieces.insertElementInto(className, board);
-    
+
     return pieces;
 }
