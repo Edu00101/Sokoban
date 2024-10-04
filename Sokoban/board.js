@@ -2,20 +2,16 @@ import Pieces from "./pieces.js"
 
 export function buildGameBoard(level) {
     const boardMap = level.trim().split('\n');
-    const pieces = {
-        boxes: []
-    };
-    let numberOfGoals = 0;
-    
+
     const game = document.getElementById("jogo");
     const board = createGameElement('div', 'bloco', game);
-    const NUM_ROWS = boardMap.length;
     
-    for (let x = 0; x < NUM_ROWS; x++) {
-        const row = createGameElement('div', 'row', board);
-        const NUM_COLS = boardMap[x].length;
+    let numberOfGoals = 0, boxes = [], player = null; 
 
-        for (let y = 0; y < NUM_COLS; y++) {
+    for (let x = 0; x < boardMap.length; x++) {
+        const row = createGameElement('div', 'row', board);
+
+        for (let y = 0; y < boardMap[x].length; y++) {
             const cell = createGameElement('div', 'cell', row);
 
 
@@ -25,8 +21,8 @@ export function buildGameBoard(level) {
             if (bir === '#') cell.classList.add('wall');
             if (bir === 'R') cell.classList.add('rell');
             if (bir === '_') cell.classList.add('rell');
-            if (bir === 'P') pieces.player = createBoardPiece(position, 'player');
-            if (bir === 'B') pieces.boxes.push(createBoardPiece(position, 'caixas'));
+            if (bir === 'P') player = createBoardPiece(position, 'player');
+            if (bir === 'B') boxes.push(createBoardPiece(position, 'caixas'));
             if (bir === 'G') {
                 cell.classList.add('goal')
                 numberOfGoals++;
@@ -34,7 +30,7 @@ export function buildGameBoard(level) {
         }
     }
 
-    return { boardMap, pieces, numberOfGoals };
+    return { boardMap, pieces: { boxes, player }, numberOfGoals };
 }
 export function createGameElement(elementName, className, parentNode) {
     const element = document.createElement(elementName);
