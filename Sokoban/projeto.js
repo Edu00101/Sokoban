@@ -1,7 +1,7 @@
 import { buildGameBoard} from "./board.js";
 import { lvl0, lvl1, lvl2, lvl3, lvl4, lvl5, lvl6 } from "./leveis.js";
 
-const { boardMap, pieces: { boxes, player }, numberOfGoals } = buildGameBoard(lvl1);
+const { boardMap, pieces: { boxes, player }, numberOfGoals } = buildGameBoard(lvl4);
 
 window.addEventListener("keydown", function (event) {
  
